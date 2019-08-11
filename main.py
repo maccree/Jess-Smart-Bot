@@ -11,3 +11,8 @@ def startCommand(bot, update):
 def textMessage(bot, update):
     response = 'Ur message: ' + update.message.text
     bot.send_message(chat_id=update.message.chat_id, text=response)
+
+
+    #Handlers
+start_command_handler = CommandHandler('start', startCommand)
+text_message_handler = MessageHandler(Filters.text, textMessage)
