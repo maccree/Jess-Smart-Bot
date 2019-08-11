@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 
 token_for_bot.py
+token_for_dialogflow.py
 
 # C extensions
 *.so

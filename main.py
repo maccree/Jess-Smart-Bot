@@ -1,5 +1,6 @@
 #imports and sertting
 import token_for_bot
+import token_for_dialogflow
 import json
 import apiai
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
@@ -12,7 +13,7 @@ def startCommand(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text='Hi')
 
 ef textMessage(bot, update):
-    request = apiai.ApiAI('').text_request() # Dialogflow API Token
+    request = apiai.ApiAI(token_for_dialogflow).text_request() # Dialogflow API Token
     request.lang = 'ru' # In what language will the request be sent
     request.session_id = 'BatlabAIBot' # Dialog Session ID (you need to learn the bot later)
     request.query = update.message.text # We send a request to the AI with a message from the user
