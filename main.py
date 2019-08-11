@@ -16,3 +16,9 @@ def textMessage(bot, update):
     #Handlers
 start_command_handler = CommandHandler('start', startCommand)
 text_message_handler = MessageHandler(Filters.text, textMessage)
+
+
+
+# HAndlers on Disp
+dispatcher.add_handler(start_command_handler)
+dispatcher.add_handler(text_message_handler)
