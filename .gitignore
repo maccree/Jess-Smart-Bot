@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+token_for_bot.py
+
 # C extensions
 *.so
 
