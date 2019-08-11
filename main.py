@@ -12,11 +12,18 @@ dispatcher = updater.dispatche
 def startCommand(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text='Hi')
 
-ef textMessage(bot, update):
-    request = apiai.ApiAI(token_for_dialogflow).text_request() # Dialogflow API Token
-    request.lang = 'ru' # In what language will the request be sent
-    request.session_id = 'BatlabAIBot' # Dialog Session ID (you need to learn the bot later)
-    request.query = update.message.text # We send a request to the AI with a message from the user
+def textMessage(bot, update):
+    request = apiai.ApiAI(token_for_dialogflow).text_request()                      # Dialogflow API Token
+    request.lang = 'ru'                                                             # In what language will the request be sent
+    request.session_id = 'BatlabAIBot'                                              # Dialog Session ID (you need to learn the bot later)
+    request.query = update.message.text                                             # We send a request to the "AI" with a message from the user
+    responseJson = json.loads(request.getresponse().read().decode('utf-8'))
+    response = responseJson['result']['fulfillment']['speech']                      # Parse JSON and pull out the answer
+                                                                                    # If there is an answer from the bot - send it to the user, if not - the bot did not understand it
+    if response:
+        bot.send_message(chat_id=update.message.chat_id, text=response)
+    else:
+        bot.send_message(chat_id=update.message.chat_id, text='I do not quite understand you!')
 
     #Handlers
 start_command_handler = CommandHandler('start', startCommand)
