@@ -22,3 +22,7 @@ text_message_handler = MessageHandler(Filters.text, textMessage)
 # HAndlers on Disp
 dispatcher.add_handler(start_command_handler)
 dispatcher.add_handler(text_message_handler)
+
+
+updater.start_polling(clean=True)
+updater.idle()
