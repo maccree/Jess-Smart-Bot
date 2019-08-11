@@ -10,10 +10,12 @@ dispatcher = updater.dispatche
 # comends ob
 def startCommand(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text='Hi')
-def textMessage(bot, update):
-    response = 'Ur message: ' + update.message.text
-    bot.send_message(chat_id=update.message.chat_id, text=response)
 
+ef textMessage(bot, update):
+    request = apiai.ApiAI('').text_request() # Dialogflow API Token
+    request.lang = 'ru' # In what language will the request be sent
+    request.session_id = 'BatlabAIBot' # Dialog Session ID (you need to learn the bot later)
+    request.query = update.message.text # We send a request to the AI with a message from the user
 
     #Handlers
 start_command_handler = CommandHandler('start', startCommand)
