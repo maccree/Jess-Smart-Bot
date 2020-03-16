@@ -3,8 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-token_for_bot.py
-token_for_dialogflow.py
+README.md
 
 # C extensions
 *.so

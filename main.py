@@ -4,7 +4,10 @@ import token_for_dialogflow
 import json
 import apiai
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-updater = Updater(token=token_for_bot) # token API  Telegram
+
+
+
+updater = Updater('<ur telegram token>', use_context= True) # token API  Telegram
 dispatcher = updater.dispatche
 
 
@@ -13,7 +16,9 @@ def startCommand(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text='Hi')
 
 def textMessage(bot, update):
-    request = apiai.ApiAI(token_for_dialogflow).text_request()                      # Dialogflow API Token
+
+    request = apiai.ApiAI('<ur Dialogflow Token>').text_request()                      # Dialogflow API Token
+
     request.lang = 'ru'                                                             # In what language will the request be sent
     request.session_id = 'BatlabAIBot'                                              # Dialog Session ID (you need to learn the bot later)
     request.query = update.message.text                                             # We send a request to the "AI" with a message from the user
