@@ -11,12 +11,12 @@ def startCommand(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text='Hello!')
 def textMessage(bot, update):
     request = apiai.ApiAI('YOUR TOKEN HERE').text_request()
-    request.lang = 'ru' # What language will the request be sent in
-    request.session_id = 'BatlabAIBot'  # ID of the dialog Session (you need to teach the bot later)
-    request.query = update.message.text     # Sending a request to the AI with a message from the user
+    request.lang = 'ru'                                                     # What language will the request be sent in
+    request.session_id = 'BatlabAIBot'                                      # ID of the dialog Session (you need to teach the bot later)
+    request.query = update.message.text                                     # Sending a request to the AI with a message from the user
     responseJson = json.loads(request.getresponse().read().decode('utf-8'))
-    response = responseJson['result']['fulfillment']['speech']      # Parsing the JSON and pulling out the response
-        # If there is a response from the bot-send it to the user, if not-the bot did not understand it
+    response = responseJson['result']['fulfillment']['speech']              # Parsing the JSON and pulling out the response
+# If there is a response from the bot-send it to the user, if not-the bot did not understand it
     if response:
         bot.send_message(chat_id=update.message.chat_id, text=response)
     else:
