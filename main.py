@@ -3,14 +3,14 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import apiai, json
 
 
-updater = Updater(token='YOUT TOKEN HERE')      # API token to Telegram
+updater = Updater(token='<YOUR TOKEN HERE>')      # API token to Telegram
 dispatcher = updater.dispatcher
 
 # Command processing
 def startCommand(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text='Hello!')
 def textMessage(bot, update):
-    request = apiai.ApiAI('YOUR TOKEN HERE').text_request()
+    request = apiai.ApiAI('<YOUR TOKEN HERE>').text_request()
     request.lang = 'ru'                                                     # What language will the request be sent in
     request.session_id = 'BatlabAIBot'                                      # ID of the dialog Session (you need to teach the bot later)
     request.query = update.message.text                                     # Sending a request to the AI with a message from the user
