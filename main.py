@@ -1,7 +1,10 @@
+import jess_logo
+
 #Settings
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import apiai, json
 
+print(jess_logo)
 
 updater = Updater(token='<YOUR TOKEN HERE>')      # API token to Telegram
 dispatcher = updater.dispatcher
@@ -20,7 +23,7 @@ def textMessage(bot, update):
     if response:
         bot.send_message(chat_id=update.message.chat_id, text=response)
     else:
-        bot.send_message(chat_id=update.message.chat_id, text='idnk')
+        bot.send_message(chat_id=update.message.chat_id, text='Error')
 
         # Handlers
 start_command_handler = CommandHandler('start', startCommand)

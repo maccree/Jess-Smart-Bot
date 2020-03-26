@@ -16,16 +16,8 @@ It's very simple! You just write to [Jess](http://t.me/jess_robot) and she answe
 
 # Do you want the same?
 
-### Install Python libraries:
 
-1. Download the python library *python-telegram-bot*:
-```bash
-pip install python-telegram-bot
-```
-2. Download the python library *apiai*:
-```bash
-pip install apiai
-```
+
 ### Create a bot in BotFather
 
 Writing [BotFather](http://t.me/botfather) in the telegram:
@@ -55,6 +47,12 @@ updater = Updater(token='<YOUR TOKEN HERE>')
     request = apiai.ApiAI('<YOUR TOKEN HERE>').text_request()
 ```
 
+### Install Python libraries:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
 4. Launching the bot:
 ```bash
 python main.py
@@ -64,3 +62,10 @@ python main.py
 ## P.s.
 
 **If something doesn't work, please email me in the Telegram -> [@alderoo](http:/t.me/alderoo)**
+
+
+# FOR BOT USERS!
+
+**Attention!
+Every day at 22:00, the bot will restart, so there may be problems with message delivery!
+(on the night from Saturday to Sunday, the bot will be disabled from 23:00 to 23:30)**
